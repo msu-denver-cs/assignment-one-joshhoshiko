@@ -15,11 +15,11 @@
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
+
   <div class="field">
     <%= form.label :car_id %><br>
-    <%= form.collection_check_boxes(:car_ids, @cars, :id, :name) %>
+    <%= form.collection_check_boxes(:car_ids, @cars, :id, :model) %>
   </div>
-
 
   <div class="actions">
     <%= form.submit %>
