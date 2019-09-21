@@ -5,6 +5,7 @@ class CarsController < ApplicationController
   # GET /cars.json
   def index
     @cars = Car.all
+    @parts = Part.all
   end
 
   # GET /cars/1
@@ -71,6 +72,6 @@ class CarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
-      params.require(:car).permit(:name, :part_ids => [])
+      params.require(:car).permit(:name, :vin, :part_ids => [])
     end
 end

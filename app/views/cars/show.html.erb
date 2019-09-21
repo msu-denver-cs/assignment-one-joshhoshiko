@@ -4,6 +4,11 @@
   <strong>Name:</strong>
   <%= @car.name %>
 </p>
+
+<p>
+  <strong>Vin:</strong>
+  <%= @car.vin %>
+</p>
 <ul>
   <% @car.parts.each do |part| %>
     <li><%= part.name %></li>
