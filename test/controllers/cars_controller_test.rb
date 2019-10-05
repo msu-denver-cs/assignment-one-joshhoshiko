@@ -45,4 +45,14 @@ class CarsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to cars_url
   end
+
+  test "should find car from the fixture" do
+    assert Car.where("model like ?", "Cross Runner").length == 1
+  end
+
+  test "searches always return 200" do
+    get search_cars_url, params: { search: "Skipper" }
+    assert_equal 200, status
+  end
+
 end

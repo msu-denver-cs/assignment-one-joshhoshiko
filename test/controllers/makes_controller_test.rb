@@ -45,4 +45,13 @@ class MakesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to makes_url
   end
+
+  test "should find make from the fixture" do
+    assert Car.where("name like ?", "Toyota").length == 1
+  end
+
+  test "searches always return 200" do
+    get search_makes_url, params: { search: "Mazda" }
+    assert_equal 200, status
+  end
 end
