@@ -51,6 +51,11 @@ class MakesController < ApplicationController
     end
   end
 
+  def search
+    @makes = Make.where("name like ?", "%#{params[:query]}%")
+    render :index
+  end
+
   # DELETE /makes/1
   # DELETE /makes/1.json
   def destroy

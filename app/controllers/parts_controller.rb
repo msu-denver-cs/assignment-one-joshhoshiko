@@ -55,6 +55,11 @@ class PartsController < ApplicationController
     end
   end
 
+  def search
+    @parts = Part.where("name like ?", "%#{params[:query]}%")
+    render :index
+  end
+
   # DELETE /parts/1
   # DELETE /parts/1.json
   def destroy
