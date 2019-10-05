@@ -54,6 +54,11 @@ class CarsController < ApplicationController
     end
   end
 
+  def search
+    @cars = Car.where("model like ?", "%#{params[:query]}%")
+    render :index
+  end
+
   # DELETE /cars/1
   # DELETE /cars/1.json
   def destroy
