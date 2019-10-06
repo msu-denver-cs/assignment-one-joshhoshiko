@@ -50,8 +50,12 @@ class PartsControllerTest < ActionDispatch::IntegrationTest
     assert Part.where("name like ?", "Exhaust").length == 1
   end
 
+  test "should not find part from the fixture" do
+    assert Part.where("model like ?", "Heated Seats").length == 0
+  end
+
   test "searches always return 200" do
-    get search_cars_url, params: { search: "Spark Plugs" }
+    get search_parts_url, params: { search: "Spark Plugs" }
     assert_equal 200, status
   end
 end

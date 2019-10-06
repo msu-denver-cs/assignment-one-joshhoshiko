@@ -50,6 +50,10 @@ class CarsControllerTest < ActionDispatch::IntegrationTest
     assert Car.where("model like ?", "Cross Runner").length == 1
   end
 
+  test "should not find car from the fixture" do
+    assert Car.where("model like ?", "Roller").length == 0
+  end
+
   test "searches always return 200" do
     get search_cars_url, params: { search: "Skipper" }
     assert_equal 200, status

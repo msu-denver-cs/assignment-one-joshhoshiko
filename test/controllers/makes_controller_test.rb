@@ -47,7 +47,11 @@ class MakesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should find make from the fixture" do
-    assert Car.where("name like ?", "Toyota").length == 1
+    assert Make.where("name like ?", "Toyota").length == 1
+  end
+
+  test "should not find make from the fixture" do
+    assert Make.where("model like ?", "Lamborghini").length == 0
   end
 
   test "searches always return 200" do
